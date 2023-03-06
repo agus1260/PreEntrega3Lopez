@@ -1,0 +1,428 @@
+// Variables de colores
+$primary-color: #dc143c;
+$white-smoke-color: #f5f5f5;
+$gray-color: #454545;
+$beige-color: #f6ede1;
+// Colores cards tienda
+$text-color-card:#ede6e6;
+$bg-color-card: #c6213a;
+// Fonts
+$font-style: sans-serif;
+// Shadow
+$shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+// -- Mixins --
+@mixin box-size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($direction, $justify-content, $align-items) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+// ----
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-style;
+    color: $gray-color;
+}
+
+body {
+    background-color: $beige-color !important;
+}
+
+/* Estilos header */
+header {
+    @include box-size(100%, 80px);
+    @include flex(row, flex-start, center);
+    padding: 20px 40px;
+    background-color: $primary-color;
+
+    ul {
+        @include flex(row, flex-start, flex-start);
+        gap: 30px;
+
+        li {
+            list-style: none;
+
+            a {
+                padding: 5px 8px;
+                text-decoration: none;
+                color:$white-smoke-color;
+                text-align: center;
+
+                &:hover {
+                    background-color:$white-smoke-color ;
+                    color: $primary-color; 
+                    border-radius: 5px; 
+                }
+            }
+        }
+    }
+}
+
+/* boton activo header */
+.active {
+    background-color:$white-smoke-color ;
+    color:$primary-color; 
+    border-radius: 5px;   
+}
+
+/* Estilos Home */
+.home-section {
+    padding: 20px;
+
+    h1 {
+        text-align: center;
+        padding: 50px 20px;
+        font-size:  1.5em;
+        font-weight: bold;
+    }
+}
+
+.home-section-c1 {
+    @include flex(column, center, center);
+    padding: 40px;
+
+    p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    img {
+        @include box-size(100%, auto);
+        max-width: 700px;
+        margin: 10px auto;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+}
+
+.home-section-c2 {
+    @extend .home-section-c1;
+    @include flex(row, center, center);
+
+    img {
+        max-width: 500px;
+    }
+}
+
+.home-section-c3 {
+   @extend .home-section-c2;
+   flex-direction: row-reverse;
+}
+
+.description-box {
+    @include box-size(50%, 100%);
+    display: inline-block;
+
+    p {
+        @include box-size(100%,100%);
+        padding: 0 20px;
+        text-align: center;
+        font-size: 18px;
+        color: $gray-color;
+    }
+}
+
+/* Estilos Veterinaria */
+.title {
+    text-align: center;
+    padding: 50px 20px;
+    font-size:  1.5em;
+    font-weight: bold;
+}
+
+.veterinary-section {
+    @include flex(column, flex-start, center);
+    padding: 20px;
+}
+
+.veterinaria-total{
+    display: grid;
+    justify-content: space-around;
+}
+
+.veterinaria {
+    max-width: 620px;
+    padding-bottom: 30px;
+
+    p {
+        color: $gray-color;
+        padding: 10px 10px 0 0;
+    }
+}
+
+.veterinaria-img {
+    @include box-size(620px,400px);
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.veterinaria-text {
+    @include flex(row, space-between, flex-start);
+    padding-top: 20px;
+}
+
+.veterinaria-text div:last-child {
+    @include flex(row, center, center);
+}
+
+.btn-map {
+    background-color: transparent;
+    padding: 10px 15px;
+    color: $primary-color;
+    font-weight: bold;
+    border: solid $primary-color;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:active {
+        background-color:transparent;
+        color:#8d0f22;
+        border: solid 2px #8d0f22
+    }
+}
+
+.dropdown, .dropdown-center, .dropend, .dropstart, .dropup, .dropup-center {
+    margin-bottom: 40px;
+}
+
+.dropdown-item:active {
+    background-color: $primary-color !important;
+}
+
+/* Estilos Tienda */
+.container-cards{
+    @include flex(row, space-around, flex-start);
+    padding: 20px 20px 70px;
+    flex-wrap: wrap;
+    gap:20px;
+}
+
+.card-tienda {
+    border: none;
+    border-radius: 15px;
+    box-shadow: $shadow;
+}
+
+.card-tienda-img{
+    max-height: 300px;
+    border-top-left-radius: 15px ;
+    border-top-right-radius: 15px ;
+}
+
+.card-tienda-text{
+    @include box-size(300px, 220px);
+    @include flex(column, space-between, flex-start);
+    background-color: $bg-color-card;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 15px;
+
+    h2, p {
+        color: $text-color-card;
+    }
+}
+
+.card-tienda-subtitle {
+    text-align: center;
+    padding: 20px;
+}
+
+.btn-comprar {
+    background-color: $white-smoke-color;
+    padding: 10px 15px;
+    color: $bg-color-card;
+    font-weight: bold;
+    border: solid 2px $bg-color-card;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $bg-color-card;
+        color: $white-smoke-color;
+        border: solid 2px $white-smoke-color;
+    }
+}
+
+/* Estilos Sucursales */
+.sucursales-section {
+    @include flex(column, center, center);
+
+    h4 {
+        text-align: center;
+        padding: 20px;
+    }
+
+    p {
+        text-align: center;
+        padding: 40px 20px;
+    }
+}
+
+.map-google-box {
+    @include flex(row, center, center)
+}
+
+/* Estilos Comunidad */
+.comunidad-section {
+    @include flex(column, center,center);
+    padding: 20px;
+
+    section {
+        margin-bottom: 20px;
+
+        p {
+            text-align: center;
+            color: $gray-color;  
+        }
+
+        img {
+            @include box-size(100%, auto);
+            max-width: 474px;
+            margin: 10px auto;
+            border-radius: 15px;
+        }
+    }
+}
+
+.podcast-box {
+    width: 100%;
+    max-width: 474px;
+    padding: 20px 0;
+}
+
+.formulario-contacto {
+    width: 100%;
+    max-width: 700px;
+    margin-top: 30px;
+
+    h3 {
+        text-align: center;
+        padding: 20px;
+        font-size:  1.5em;
+        font-weight: bold;
+    }
+
+    .form-label {
+        padding: 0 0.375rem;
+    }
+
+    button {
+        background-color: $primary-color;
+        color: $white-smoke-color;
+        border: solid 3px $primary-color;
+        border-radius: 10px;
+        padding: 10px 20px;
+
+        &:hover {
+            background-color: transparent;
+            color: $primary-color;
+        }
+    }
+}
+
+/* Estilos footer */
+footer {
+    background-color: $primary-color;
+    padding: 50px 20px
+}
+
+.footer-media {
+    text-align: center;
+    margin-bottom: 20px;
+
+    img {
+        padding: 20px;
+    }
+}
+
+.footer-links-box {
+    @include flex(row, center, flex-start);
+
+    ul {
+        @include flex(row, center, flex-start);
+        flex-wrap: wrap;
+        max-width: 600px;
+        padding: 0;
+
+        li {
+            padding: 5px 8px;
+            text-decoration: none;
+            color:$white-smoke-color;
+            text-align: center;
+            list-style: none;
+        }
+    }
+}
+
+/* -- Breakpoints -- */
+
+/* -- Dispositivos medianos -- */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 20px 20px;
+
+        ul {
+            gap: 15px;
+
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .dropdown, .dropdown-center, .dropend, .dropstart, .dropup, .dropup-center {
+        @include flex(row, center, flex-start)
+    }
+
+    .home-section-c1, .home-section-c2, .home-section-c3 {
+        flex-wrap: wrap;
+    }
+
+    .description-box {
+        width: 100%;
+    }
+
+    .veterinaria {
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+/* -- Dispositivos pequeños -- */
+@media screen and (max-width: 480px) {
+    header {
+        height: auto;
+
+        ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .card-tienda-img {
+        max-height: 250px;
+    }
+
+    .card-tienda-text {
+        width: 250px;
+    }
+
+    .card-tienda-subtitle {
+        text-align: center;
+    }
+
+    .veterinaria-img {
+        max-height: 250px;   
+    }
+}

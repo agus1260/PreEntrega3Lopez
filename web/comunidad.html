@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>PetSmile</title>
 </head>
 <body>
@@ -26,18 +27,18 @@
             <p>
                 Un espacio donde podes compartir tus experiencias con tus mascotas
             </p> 
-            <img class="home-img" src="https://cde.3.elcomercio.pe/ima/0/1/7/0/4/1704658.jpg" alt="perro">
+            <img src="https://cde.3.elcomercio.pe/ima/0/1/7/0/4/1704658.jpg" alt="perro">
         </section>
 
         <section>
             <p>
                 Adoptar es una opcion que salva vidas
             </p> 
-            <img class="home-img" src="https://tse2.mm.bing.net/th?id=OIP.AGohJhrSv5kkz_zH-XwxnAHaEJ&pid=Api&P=0" alt="perro">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.AGohJhrSv5kkz_zH-XwxnAHaEJ&pid=Api&P=0" alt="perro">
         </section>
   
         <section>
-            <div class="comunidad-img">
+            <div>
                 <p>
                     Como vacunar a tus mascotas
                 </p> 
@@ -50,31 +51,31 @@
         </section>
 
         <!-- Formulario de contacto -->
-        <section>
+        <section class="formulario-contacto">
             <h3>Contactanos</h3>
             <form action="">
-                <div>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" name="nombre" />
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu nombre">
                 </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingresa tu Apellido">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="¿En qué podemos ayudarte?"></textarea>
+                </div>
+
+                <button type="submit">Enviar</button>
                 
-                <div>
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" name="apellido" />
-                </div>
-
-                <div>
-                    <label for="email">E-mail:</label>
-                    <input type="email" name="email" />
-                </div>
-
-                <div>
-                    <textarea name="asunto" cols="50" rows="10" placeholder="¿En qué podemos ayudarte?"></textarea>
-                </div>
-
-                <div>
-                    <button type="submit">Enviar</button>
-                </div>
             </form>
 
         </section>
